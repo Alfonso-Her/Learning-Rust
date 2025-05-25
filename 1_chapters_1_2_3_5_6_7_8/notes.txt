@@ -1,0 +1,39 @@
+From chapter 1:
+
+- The convention for more of one word file name is to use _
+- Compile with rustc filename.rs
+- To declare a function we use fn, and there is and special function "main(Optional_parameters_here)" which is always executed first
+- The main fuction can have a void return.
+- Rust needs to wrapped function bodies inside {}, following good stayles the brackets opens in the same line as the function declaration
+- There is a code formatter tool inside rust (Appendix D).
+
+- Studying the line println!("Hello, world!"); we have:
+    - when calling println!, we are calling a Rust macro?, (Don't know what a Rust macro is but the docu promise to add data at chapter 20)
+    - for now we just know that ! calls a macro not a normal rust function
+
+- The file "file_name.pdb" is only generated while working inside a windows os (as I am currently doing), in other OS there is only a "file_name" executable
+
+- See that Rust is ahead-of-time compiled language
+
+-.- Hello, Cargo!
+
+- Cargo helps downloding the libraries required and then building the program
+- libraries requiered by the proyect are called dependencies
+- Cargo is used as predefined, so to compile we don't use rustc, instead we create a cargo proyect:
+    - cargo new name_of_the_proyect this will create a new folder in the path specified in the name of the proyect
+    - By default cargo initialized a new Git repository, this can be prevent by starting a proyect inside a repository overriding this behaviour with cargo new --vcs=Git, 
+    - To display all the options use cargo new --help
+
+- Cargo sections are initialized using [], now we get to know [package], [dependencies]
+- editon option while be discussed later (Appendix E)
+- In Rust packages are name crates
+- Cargo expects:
+    - all the source code inside src
+    - The top-level project is just for README, licence and cofig files, or other files not related to rust code
+
+- building with cargo:
+    - to build, just make cargo build on the top-level folder this generate a .exe inside target\\debug\\file_name.exe
+    - The first build will generate a .lock file used to track version on the dependencies it is automatically updated by cargo (in theory, I want to see this working on a big proyect)
+    - Cargo run compile and run the debug .exe, Cargo only compile the code when a change happend
+    - cargo check make cargo to test if our code is compilable without the whole compile process
+    - To build a release just add the flag --release to the build command cargo build --release, this will generate a target\\release
