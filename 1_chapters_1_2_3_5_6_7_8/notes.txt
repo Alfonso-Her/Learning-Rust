@@ -37,3 +37,40 @@ From chapter 1:
     - Cargo run compile and run the debug .exe, Cargo only compile the code when a change happend
     - cargo check make cargo to test if our code is compilable without the whole compile process
     - To build a release just add the flag --release to the build command cargo build --release, this will generate a target\\release
+
+From chapter 2: (Fast notes)
+
+- We import io (input/output) library from std.
+- The std library (prelude) has its own documentation may be worth to read it.
+- let statement creates variables
+- Variables are immutable by defailt!!! will come back later on to that.
+- Variables can be mutable if we add te word mut before them
+- comments //
+- to use function that are associated to types we use :: as conector, ex: String::new()
+- In full, the let mut guess = String::new(); line has created a mutable variable that is currently bound to a new, empty instance of a String.
+
+- Receiving user input:
+- we use io::stdin() because we start the file with use std::io, instead we can do std::io::stdin, this will return an instance of std::io::Stdin
+- The read_line methos called using . transforme the the user input into a String and append it to the Optional_parameters_here
+- See that the parameter must be a mutable variable because read_line is going to modify it.
+- Similar to c++, & is used to pass something as reference, which prevents unecesaries copies of the varible in memory
+- References can be mutable too so to generare a mutable reference we use &mut
+
+- read_line also returns a Result value which is a enumeration (enum) in this case to handle errors
+- This instance of Result has a expect function that verify if the enum return by read_line is ok or err
+- rust warn the developer when a potencial error is not handle.
+- with ecxpect we stop the execution if an error happens
+
+- Generating a Secret Number
+
+- We are going to use the rand crate (library) to generate random numbers
+- The specifier 0.8.5 is actually shorthand for ^0.8.5, which means any version that is at least 0.8.5 but below 0.9.0
+- Cargo understands Semantic Versioning
+- use rand::Rng where Rng is a trait
+- Some of the fuction of the example were depecrated so I change them
+- to define a range expression we can use start..=end
+- IMPORTANT to know which traits, methods and function are abailable inside a crate use cargo doc --open
+- Whow that is amazing it generate a web with the documetation of the proyect including crates
+- The match expression is powerfull and in the example is a bit difficult to understand I am sure it will shows again.
+- rust has a strong static type system
+- in rust there are unsigned numbers
