@@ -74,3 +74,62 @@ From chapter 2: (Fast notes)
 - The match expression is powerfull and in the example is a bit difficult to understand I am sure it will shows again.
 - rust has a strong static type system
 - in rust there are unsigned numbers
+- Rust allows us to do shadowing to variables changing the type of a variable witout creating 2 variables
+- I belive that I do not understand match at all...
+
+
+
+ From chapter 3:
+*_* Intro
+- There are constants and they are different of a not mutable variable.
+- Costants needs to be typed in their declaration, with theirs name in uppercase with underscores
+- In order to make a variable shadowed just use let and reasign the value , ex: let y = 1; let y = y + 1 ;
+- take care let only works inside the same scope 
+- let can change the type of a variable, a mutable variable can't directly 
+
+*_* Data types
+- Rust MUST know the types of all the variables at compile time.
+- If we use a function to change the type such as .parse() we have to indicate the type
+
+- Scalar Types:{Interger, floating-point, numbers,Booleans, characters}
+    - Interger:
+        - is a number without a fractional component.
+        - i signed, u unsigned (negative or not)
+        - 8-bit to 128-bit all the 8 mult
+        - Each signed variant can store numbers from −(2**(n − 1)) to 2**(n − 1) − 1 inclusive
+        - Unsigned variant can store from 0 to 2**n -1
+        - isize and usize depend on the architecture
+        - Rust supporst Decimal, hex,Octal,binary...
+        - JAJAJAJA if you make and error like a interger Overflow Rust literally just panick at runtime!
+        - To prevent interger Overflow rust has some solutions: wrap in all modes; return None value if there is overflow; return the value and a Boolean; or saturate at the value's minimum or maximim values with saturating_*
+    
+    - Floating-Point Types
+        - There are to floating-point types f32 and f64
+        - The default one is f64
+        - all floating types are singed
+    
+    - Numeric Operations 
+        -addition, subtraction, multiplication, division, and remainder. Integer division truncates toward zero to the nearest integer.
+    
+    - Boolean type;
+
+    - Char type
+        - You can use emotes wtf
+        - four bytes Unicode Scalar Value
+    
+    - Compound Types
+        - Tuples type
+            - groups a number of values with  a variety of types into one compound type
+            - ex: let tup: (i32,f32, u8) = (500, 4.5, 2);
+            - you can change only some types using for example (i21,_,_)
+        
+        - Arrays
+            - All the elements have the same type
+            - Fixed length
+            - The docu says: Arrays are useful when you want your data allocated on the stack, the same as the other types we have seen so far, rather than the heap
+                - I don't understand what that mean, will be discuss in the Chapter 4
+            - There are vectors, provided by std, with unfixed length
+            - ex: 
+                - let a :[i32,5] = [2,3,4,5,1];
+                - let b : [2,4] = [2,2,2,2];
+            - To acces just use a[i] with 0<=i<=n-1 (n is fixed)
