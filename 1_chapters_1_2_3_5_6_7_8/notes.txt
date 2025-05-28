@@ -133,3 +133,69 @@ From chapter 2: (Fast notes)
                 - let a :[i32,5] = [2,3,4,5,1];
                 - let b : [2,4] = [2,2,2,2];
             - To acces just use a[i] with 0<=i<=n-1 (n is fixed)
+
+- Functions:
+
+- Initialized with fn and use snake case as conventional style (minus + _)
+- functions have parameters, special variable that are part of the function's signature
+- Tecnically, the concrete values fixed on the call of a function are named arguments
+- On the function signature must appear the type of the parameters
+
+    -Statments and Expressions:
+        - Statments are instructions that perform some action and do not return a value.
+        - Expressions evaluate to a resultat value.
+
+        - Example of statments => fn main{let y = 3;}
+        - fuction definitions are also statements, the entire preceding example is a statement in itself.
+        - statements do not return values, ok I think I get it.
+        - The example in the book is something like let x = (let y = 0); which gives a error because let y = 0 don't return anything
+
+        - Expressions evaliate to a a value.
+        - Example: 5+6.
+        - Expressions can be inside statement, ex : in the statement let y = 6; is an expression that evaluates to the value 6
+        - calling a function, macro is an expression 
+        - A block of code inside {} is an expression
+        - Expressions do not include ending semicolons. If you add a semicolon to the end of an expression, you turn it into a statement!!!!!
+        - Take care with the ; you can not place them without thinking!!
+        - To sum up and simplifing the logic, just do not place a ; to return a value
+        - I chew on the explample and manage to place a println! inside the scope that change the value of x
+            - I saw that even when the x is not mutable the scope can return a transformation of the variable
+    
+    - In the signature of a function that returns things we declare the return type using -> same as python
+    - In Rust, the return value of the function is synonymous with the value of the final expression in the block of the body of a function
+    - If you place a ; at the end of a function (not returning anything) you would get a mismatched types error
+
+- Comments : // and will read more about them in the chapter 14
+
+- Control Flow.
+- Basically we want to make if-else and whiles.
+
+- if Expressions
+    - At a first glance is similar to python but with the {}
+    - Blocks of code associated by a condition are sometimes called arms like we made with the match
+    - I am skipping most of the information mainly because it is the same as other languages
+    - Rust does not try to automatically convert the type of the condition to a Boolean type instead it throws an error
+    - There are more powerfull expressions that else if, such as match will expand this information in chapter 6
+    - See that because if is an Expression we can use it in the assign of something with let, ex : let number = if condition {3} else {5};
+        - Rust check if both arms have the same type
+
+- Loops
+
+    - loop: is a while true
+    - we have break, continue keyword
+    - we can use break as a return for the loop, ex: break contador * 2;
+    - we can also use return but it will end the function
+
+- Loops Labels
+    - we can "name/mark" a loop to make break and continue only inside it, the examples is clear
+    - to add a label just place a snake case name before the keyword loop and place in between a : 
+
+- While condition {}
+    - It is the same as always
+    - Can be replicated with loop, conditions, breaks and if-else
+
+- for is the same that python but with {}
+    - for element in array
+    - is more safe than while to loop through a collection, (no index problem)
+    - for is the most recommendable way to looping
+    - See that to generate a range we can just use (a..b) and will generate (a+1,...b)
